@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     #Third Apps
     'bootstrap4',
     'debug_toolbar',
+    'django_pydenticon',
 
     #Local Apps
     'accounts',
@@ -140,3 +141,11 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Email with Send Grid
+SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY')
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'apikey' # this is exactly the value 'apikey'
+EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
